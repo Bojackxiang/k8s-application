@@ -8,7 +8,6 @@ build:
   local:
     push: false
   artifacts:
-    
     - image: batmandocode/data
       context: api/data
       docker:

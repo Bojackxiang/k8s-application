@@ -18,14 +18,12 @@ app.get("/api/posts/test", (req, res) => {
 });
 
 app.get("/api/posts/list", async (req, res) => {
-  const response = await axios.get(`${URL_PREFIX}/data/list`);
+  const response = await axios.get(`${URL_PREFIX}/api/data/list`);
   res.send(response.data);
 });
 
 app.post("/api/posts/create", async (req, res) => {
   const { title } = req.body;
-  console.log(title);
-  console.log("step1");
   const response = await axios.post(`${URL_PREFIX}/data/create/post`, {
     title,
   });
@@ -49,5 +47,5 @@ app.post("/api/posts/comment/create", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`___${PROJECT_NAME}___ is running on ${PORT} ✅`);
+  console.log(`更新过后___${PROJECT_NAME}___ is running on ${PORT} ✅`);
 });
