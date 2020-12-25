@@ -24,7 +24,7 @@ app.get("/api/posts/list", async (req, res) => {
 
 app.post("/api/posts/create", async (req, res) => {
   const { title } = req.body;
-  const response = await axios.post(`${URL_PREFIX}/data/create/post`, {
+  const response = await axios.post(`${URL_PREFIX}/api/data/create/post`, {
     title,
   });
   res.send(response.data);
@@ -34,12 +34,13 @@ app.post("/api/posts/comment/create", async (req, res) => {
   try {
     const { comment, postId } = req.body;
     console.log(comment, postId);
-    const response = await axios.post(`${URL_PREFIX}/data/create/comment`, {
+    const response = await axios.post(`${URL_PREFIX}/api/data/create/comment`, {
       comment,
       postId,
     });  
     res.send(response.data);
   } catch (error) {
+    console.log(error);
     res.send({success: false})
   }
   
